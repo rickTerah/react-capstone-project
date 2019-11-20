@@ -3,12 +3,11 @@ import Joi from "joi-browser";
 import { toast } from "react-toastify";
 import Form from '../common/Form';
 import '../register/Register.scss';
-class NewArticle extends Form {
+class NewGif extends Form {
     state = {
         fields: { 
             title: "",
-            article: "",
-            category: ""
+            image: "",
         },
         errors: {}
     };
@@ -17,12 +16,9 @@ class NewArticle extends Form {
         title: Joi.string()
             .required()
             .label("Title"),
-        article: Joi.string()
+        image: Joi.binary()
             .required()
-            .label("Article"),
-        category: Joi.number()
-            .required()
-            .label("Category"),
+            .label("Image"),
     };
 
     doSubmit = async () => {
@@ -32,11 +28,10 @@ class NewArticle extends Form {
     render() { 
         return ( 
             <section className="form-wrapper form__login">
-                <h2 className="form__title form__article">New Article</h2>
+                <h2 className="form__title">Post New GIF</h2>
                 <form onSubmit={this.handleSubmit} className="form">
                     {this.renderInput("title", "Title")}
-                    {this.renderTextarea("article", "Article")}
-                    {this.renderInput("category", "Category")}
+                    {this.renderInput("image", "Image", "file")}
                     {this.renderButton("Submit")}
                 </form>
             </section>
@@ -44,4 +39,4 @@ class NewArticle extends Form {
     }
 }
  
-export default NewArticle;
+export default NewGif;
