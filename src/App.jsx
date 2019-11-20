@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import NavBar from './components/navbar/Navbar';
 import Register from './containers/register/Register';
 import Login from './containers/login/Login';
+import NewArticle from './containers/newArticle/NewArticle';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => (
@@ -12,6 +13,7 @@ const App = () => (
     <NavBar />
     <Route path="/register" component={Register} />
     <Route path="/login" component={Login} />
+    <Route path="/new-article" component={NewArticle} />
   </div>
 );
 
