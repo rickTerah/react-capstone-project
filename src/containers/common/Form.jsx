@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Input from "./Input";
 import Select from "./Select";
+import Textarea from './TextArea'
 import Joi from "joi-browser";
 import { toast } from "react-toastify";
 import '../register/Register.scss';
@@ -69,6 +70,18 @@ class Form extends Component {
                 value={fields[name]}
                 name={name}
                 options={options}
+                label={label} 
+                error={errors[name]}
+                onChange={this.handleFormChange}
+            />
+        )
+    }
+    renderTextarea(name, label){
+        const { fields, errors } = this.state
+        return (
+            <Textarea 
+                value={fields[name]}
+                name={name}
                 label={label} 
                 error={errors[name]}
                 onChange={this.handleFormChange}
