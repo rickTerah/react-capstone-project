@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Joi from "joi-browser";
-import { toast } from "react-toastify";
 import Form from '../common/Form';
+import { createNewArticle } from '../../services/articleService';
 import '../register/Register.scss';
 class NewArticle extends Form {
     state = {
         fields: { 
             title: "",
             article: "",
-            category: ""
+            categoryId: ""
         },
         errors: {}
     };
@@ -20,14 +20,13 @@ class NewArticle extends Form {
         article: Joi.string()
             .required()
             .label("Article"),
-        category: Joi.number()
+        categoryId: Joi.number()
             .required()
             .label("Category"),
     };
 
     doSubmit = async () => {
-        console.log("submitted");
-        return toast.success("Your message has been received.");
+        await createNewArticle(this.state.fields);
     };
     render() { 
         return ( 
@@ -36,7 +35,7 @@ class NewArticle extends Form {
                 <form onSubmit={this.handleSubmit} className="form">
                     {this.renderInput("title", "Title")}
                     {this.renderTextarea("article", "Article")}
-                    {this.renderInput("category", "Category")}
+                    {this.renderInput("categoryId", "Category")}
                     {this.renderButton("Submit")}
                 </form>
             </section>

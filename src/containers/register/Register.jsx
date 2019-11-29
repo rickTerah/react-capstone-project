@@ -1,8 +1,8 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "../common/Form";
+import { registerUser } from "../../services/userService"
 import "./Register.scss";
-import { toast } from "react-toastify";
 
 class Register extends Form {
     state = {
@@ -18,12 +18,12 @@ class Register extends Form {
             isAdmin: "",
         },
         genders: [
-            {id:1, name: 'male'},
-            {id:2, name: 'female'},
+            {id: 'male', name: 'male'},
+            {id: 'female', name: 'female'},
         ],
         admin: [
-            {id:1, name: "true"},
-            {id:2, name: "false"},
+            {id:true, name: 'true'},
+            {id:false, name: 'false'},
         ],
         errors: {}
     };
@@ -44,6 +44,9 @@ class Register extends Form {
         gender: Joi.string()
             .required()
             .label("Gender"),
+        jobRole: Joi.string()
+            .required()
+            .label("JobRole"),
         department: Joi.string()
             .required()
             .label("Department"),
@@ -55,9 +58,8 @@ class Register extends Form {
             .label("IsAdmin"),
     };
 
-    doSubmit = async () => {
-        console.log("submitted");
-        return toast.success("Your message has been received.");
+    doSubmit =  async () => {
+        await registerUser(this.state.fields);  
     };
 
     render() {
@@ -68,8 +70,9 @@ class Register extends Form {
                     {this.renderInput("firstName", "FirstName")}
                     {this.renderInput("lastName", "LastName")}
                     {this.renderInput("email", "Email")}
-                    {this.renderInput("password", "Password")}
+                    {this.renderInput("password", "Password", "password")}
                     {this.renderSelect('gender', 'Gender', this.state.genders)}
+                    {this.renderInput("jobRole", "JobRole")}
                     {this.renderInput("department", "Department")}
                     {this.renderInput("address", "Address")}
                     {this.renderSelect('isAdmin', 'IsAdmin', this.state.admin)}

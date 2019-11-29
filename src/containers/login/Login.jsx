@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Joi from "joi-browser";
-import { toast } from "react-toastify";
+import * as userService from "../../services/userService";
 import Form from '../common/Form';
 import '../register/Register.scss';
 class Login extends Form {
@@ -22,9 +22,10 @@ class Login extends Form {
     };
 
     doSubmit = async () => {
-        console.log("submitted");
-        return toast.success("Your message has been received.");
+        await userService.loginUser(this.state.fields);
+        window.location = '/';
     };
+
     render() { 
         return ( 
             <section className="form-wrapper form__login">

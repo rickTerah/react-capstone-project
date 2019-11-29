@@ -3,7 +3,6 @@ import Input from "./Input";
 import Select from "./Select";
 import Textarea from './TextArea'
 import Joi from "joi-browser";
-import { toast } from "react-toastify";
 import '../register/Register.scss';
 
 class Form extends Component {
@@ -45,7 +44,7 @@ class Form extends Component {
 
         const errors = this.validateField();
         this.setState({ errors: errors || {} });
-        if (!errors) return;
+        if (errors) return;
         this.doSubmit();
     };
 

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Joi from "joi-browser";
-import { toast } from "react-toastify";
 import Form from '../common/Form';
+import { postNewGif } from '../../services/gifService';
 import '../register/Register.scss';
 class NewGif extends Form {
     state = {
@@ -22,8 +22,7 @@ class NewGif extends Form {
     };
 
     doSubmit = async () => {
-        console.log("submitted");
-        return toast.success("Your message has been received.");
+        await postNewGif(this.state.fields);
     };
     render() { 
         return ( 
