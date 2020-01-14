@@ -23,7 +23,6 @@ class Login extends Form {
 
     doSubmit = async () => {
         await userService.loginUser(this.state.fields);
-        window.location = '/';
     };
 
     render() { 
