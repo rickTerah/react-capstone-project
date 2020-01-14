@@ -1,0 +1,29 @@
+.subnav {
+    
+    &__list {
+        color: #224;
+        font-size: 1.5rem;
+        font-weight: 600;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #eee;
+        height: 15rem;
+        margin-top: 10rem;
+
+        &-link{
+            text-decoration: none;
+        }
+
+        &-item {
+            display: inline-block;
+            text-align: center;
+            text-transform: capitalize;
+
+            padding: 1rem 1rem;
+            margin: auto;
+        }
+
+    }
+}

@@ -1,0 +1,41 @@
+:root {
+  // custom css variables or custom properties
+  --color-primary: #224;
+  --color-secondary: lightblue;
+  --color-seconday-dark: blueviolet;
+
+  --color-white: #fff;
+  --color-dark: #000;
+  --color-grey-light: rgb(176, 175, 171);
+}
+
+*,
+*::before,
+*::after {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html {
+font-size: 62.5%;
+}
+
+body {
+padding: 0 1rem;
+font-family: 'Nunito Sans', sans-serif;
+
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+
+}
+
+::selection {
+background-color: var(--color-seconday-dark);
+color: var(--color-white);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

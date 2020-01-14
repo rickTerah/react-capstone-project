@@ -1,0 +1,26 @@
+.home-panel {
+    height: 100vh;
+    background-color: lightblue;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+
+    &__company{
+        margin: auto 0;
+
+        &-name {
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-align: center;
+            color: var(--color-primary);
+        }
+    }
+
+    &__moto {
+        font-size: 2rem;
+        font-weight: 400;
+        text-align: center;
+        color: var(--color-primary);
+    }
+}
