@@ -23,6 +23,7 @@ export function loginUser(user) {
                 return toast.error(data.error);
             }
             localStorage.setItem('token', data.data.token);
+            window.location = '/';
             toast.success('Successfully logging In');
         });
 }
